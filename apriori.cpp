@@ -180,10 +180,12 @@ void subsetHash(SuperItemSet &ret,struct HashTree *head,vector<int> arr,int data
 }
  
 /*  Function to print the subset  */ 
-void genSubset(SuperItemSet &ret,struct HashTree *head,vector<int> arr,int n,int k){
-    int data[k];
-    subsetHash(ret,head,arr,data,0,n-1,0,k);
+void genSubset(SuperItemSet &ret, struct HashTree *head, vector<int> arr, int n, int k) {
+    std::vector<int> data(k);
+    subsetHash(ret, head, arr, data.data(), 0, n - 1, 0, k);
+    // No need to delete anything; vector takes care of memory management
 }
+
 
 SuperItemSet supportCount(struct HashTree *head,int k){
 	SuperItemSet ret;
